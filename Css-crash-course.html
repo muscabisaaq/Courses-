@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning CSS!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+    }
+
+    .logo h1 {
+      margin: 0;
+    }
+
+    .sok {
+      color: #04AA6D;
+    }
+
+    .ora {
+      color: orange;
+    }
+
+    /* Navigation */
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    /* Hamburger icon */
+    .icon {
+      display: none;
+      float: right;
+      font-size: 20px;
+      padding: 14px 16px;
+      cursor: pointer;
+    }
+
+    /* Main content */
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #04AA6D;
+      margin-top: 30px;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 600px) {
+      .topnav a { display: none; }
+      .topnav a.icon { display: block; }
+      .topnav.responsive { position: relative; }
+      .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .topnav.responsive a {
+        display: block;
+        text-align: left;
+        float: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <h1><span class="sok">Sok</span><span class="ora">ora</span></h1>
+    </div>
+    <div class="topnav" id="myTopnav">
+      <a class="active" href="#intro">Home</a>
+      <a href="#definition">What is CSS?</a>
+      <a href="#syntax">Syntax</a>
+      <a href="HTML">HTML course</a>
+      <a href="#selectors">Selectors</a>
+      <a href="#examples">Examples</a>
+      <a href="#summary">Summary</a>
+      <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">☰</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Welcome to CSS Learning!</h2>
+      <p>This page is your complete guide to <strong>CSS</strong> — the language that styles the web. By the end, you'll understand its purpose, syntax, and how to use it to design beautiful pages.</p>
+    </section>
+
+    <section id="definition">
+      <h2>What is CSS?</h2>
+      <p><strong>CSS</strong> (Cascading Style Sheets) is the language used to style and format HTML content.</p>
+      <ul>
+        <li><strong>Cascading</strong> – Styles can be inherited and overridden in a specific order.</li>
+        <li><strong>Style</strong> – CSS defines how elements look (colors, fonts, sizes, layouts).</li>
+        <li><strong>Sheets</strong> – Styles are stored in rulesheets, separate from HTML.</li>
+      </ul>
+    </section>
+
+    <section id="syntax">
+      <h2>CSS Syntax</h2>
+      <p>CSS uses a simple pattern: <code>selector { property: value; }</code></p>
+      <pre>
+p {
+  color: red;
+  font-size: 16px;
+}
+      </pre>
+      <p>This styles all <code>&lt;p&gt;</code> tags with red text and 16px font size.</p>
+    </section>
+
+    <section id="selectors">
+      <h2>CSS Selectors</h2>
+      <ul>
+        <li><strong>Element Selector</strong> – <code>p {}</code> targets all paragraphs.</li>
+        <li><strong>Class Selector</strong> – <code>.classname {}</code> targets elements with a specific class.</li>
+        <li><strong>ID Selector</strong> – <code>#idname {}</code> targets an element with a specific ID.</li>
+        <li><strong>Group Selector</strong> – <code>h1, h2 {}</code> targets multiple elements.</li>
+      </ul>
+    </section>
+
+    <section id="examples">
+      <h2>CSS Examples</h2>
+      <p>Example of a styled heading:</p>
+      <pre>
+h1 {
+  color: blue;
+  text-align: center;
+  border-bottom: 2px solid black;
+}
+      </pre>
+    </section>
+
+    <section id="summary">
+      <h2>Summary</h2>
+      <p>CSS works with HTML to control the look and feel of your website. Combined with <strong>JavaScript</strong>, it can make your pages both beautiful and interactive.</p>
+    </section>
+  </main>
+
+  <footer style="background-color:#333; color:white; text-align:center; padding:10px;">
+    <p>&copy; 2025 Sokora. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+      let nav = document.getElementById("myTopnav");
+      nav.className = nav.className === "topnav" ? "topnav responsive" : "topnav";
+    }
+
+    // Active link highlight on click
+    document.querySelectorAll('.topnav a').forEach(link => {
+      link.addEventListener('click', function () {
+        document.querySelectorAll('.topnav a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
