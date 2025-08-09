@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning HTML!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+    }
+
+    .logo h1 {
+      margin: 0;
+    }
+
+    .sok {
+      color: #04AA6D;
+    }
+
+    .ora {
+      color: orange;
+    }
+
+    /* Navigation */
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .topnav a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+    }
+
+    .topnav a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .topnav a.active {
+      background-color: #04AA6D;
+      color: white;
+    }
+
+    /* Hamburger icon */
+    .icon {
+      display: none;
+      float: right;
+      font-size: 20px;
+      padding: 14px 16px;
+      cursor: pointer;
+    }
+
+    /* Main content */
+    main {
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #04AA6D;
+      margin-top: 30px;
+    }
+
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 600px) {
+      .topnav a { display: none; }
+      .topnav a.icon { display: block; }
+      .topnav.responsive { position: relative; }
+      .topnav.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+      .topnav.responsive a {
+        display: block;
+        text-align: left;
+        float: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <h1><span class="sok">Sok</span><span class="ora">ora</span></h1>
+    </div>
+    <div class="topnav" id="myTopnav">
+      <a class="active" href="#intro">Home</a>
+      <a href="#definition">What is HTML?</a>
+      <a href="#structure">Structure</a>
+      <a href="#tags">Tags</a>
+      <a href="#links">Links</a>
+      <a href="#summary">Summary</a>
+      <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">☰</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>Welcome to HTML Learning!</h2>
+      <p>This page is your complete guide to <strong>HTML</strong> — the language that powers the web. By the end, you'll understand its purpose, structure, and how to write it yourself.</p>
+    </section>
+
+    <section id="definition">
+      <h2>What is HTML?</h2>
+      <p><strong>HTML</strong> (HyperText Markup Language) is the standard language used to create web pages. It tells your web browser what to display and how to structure it.</p>
+      <ul>
+        <li><strong>HyperText</strong> – Links that connect web pages together.</li>
+        <li><strong>Markup</strong> – Special symbols (tags) that describe how content should appear.</li>
+        <li><strong>Language</strong> – A set of rules that browsers understand.</li>
+      </ul>
+    </section>
+
+    <section id="structure">
+      <h2>Basic HTML Structure</h2>
+      <p>Every HTML document follows a structure like this:</p>
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+    </section>
+
+    <section id="tags">
+      <h2>HTML Elements & Tags</h2>
+      <p>HTML uses tags inside angle brackets, such as <code>&lt;p&gt;</code> for paragraphs. Most tags come in pairs:</p>
+      <ul>
+        <li><code>&lt;h1&gt;...&lt;/h1&gt;</code> – Main heading</li>
+        <li><code>&lt;p&gt;...&lt;/p&gt;</code> – Paragraph</li>
+        <li><code>&lt;img src="image.jpg" alt="Description"&gt;</code> – Image</li>
+        <li><code>&lt;a href="https://example.com"&gt;Link&lt;/a&gt;</code> – Link</li>
+      </ul>
+    </section>
+
+    <section id="links">
+      <h2>Hyperlinks</h2>
+      <p>Hyperlinks connect one page to another. Example:</p>
+      <pre>
+&lt;a href="https://www.example.com"&gt;Visit Example&lt;/a&gt;
+      </pre>
+      <p>This creates a clickable link.</p>
+    </section>
+
+    <section id="summary">
+      <h2>Summary</h2>
+      <p>HTML is the foundation of the web. Combined with <strong>CSS</strong> (for styling) and <strong>JavaScript</strong> (for interactivity), it allows you to build beautiful, functional websites.</p>
+    </section>
+  </main>
+
+  <footer style="background-color:#333; color:white; text-align:center; padding:10px;">
+    <p>&copy; 2025 Sokora. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+      let nav = document.getElementById("myTopnav");
+      nav.className = nav.className === "topnav" ? "topnav responsive" : "topnav";
+    }
+
+    // Active link highlight on click
+    document.querySelectorAll('.topnav a').forEach(link => {
+      link.addEventListener('click', function () {
+        document.querySelectorAll('.topnav a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
